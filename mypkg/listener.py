@@ -10,5 +10,5 @@ def main():
     global node
     node = Node("listener")
     node.create_subscription(String, "time_infomation", cb, 10)
-    node.get_logger().info("Listener Node is now listening to 'time_information' topic.")
+    node.get_logger().info("Now listen")
     rclpy.spin(node)
