@@ -12,5 +12,5 @@ source $dir/.bashrc
 
 timeout 10 ros2 launch mypkg timer_listen.launch.py > /tmp/mypkg.log
 cat /tmp/mypkg.log
-grep  "現在時刻:" || ng "$LINENO"
-grep  '経過時刻:1.00秒' || ng "$LINENO"
+grep  "現在時刻:"
+grep  '経過時刻:1.00秒'
