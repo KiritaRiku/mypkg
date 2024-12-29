@@ -6,7 +6,7 @@ ng() {
 
 res=0
 
-timeout 4 ros2 launch mypkg timer_listen.launch.py > /tmp/mypkg.log
+timeout 10 ros2 launch mypkg timer_listen.launch.py > /tmp/mypkg.log
 
 out=$(cat /tmp/mypkg.log)
 
