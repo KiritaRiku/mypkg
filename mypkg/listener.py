@@ -1,16 +1,14 @@
 import rclpy
 from rclpy.node import Node
-from std_msgs.msg import Int16
-
-rclpy.init()
-node = Node("listener")
-
+from std_msgs.msg import String
 
 def cb(msg):
-    global node
-    node.get_logger().info("Listen: %d" % msg.data)
-
+    node.get_logger().info(f"Listen: {msg.data}")
 
 def main():
-    pub = node.create_subscription(Int16, "countup", cb, 10)
+    rclpy.init()
+    global node
+    node = Node("listener")
+    node.create_subscription(String, "time_infomation", cb, 10)
+    node.get_logger().info("Listener Node is now listening to 'time_information' topic.")
     rclpy.spin(node)

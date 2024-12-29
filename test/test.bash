@@ -1,14 +1,20 @@
 #!/bin/bash
 
-dir=~
-[ "$1" != "" ] && dir="$1"
+ng () {
+    echo ${1}行目が違う
+    res=1
+}
 
-cd $dir/ros2_ws
-colcon build
+res=0
 
-source $dir/.bashrc
+out=$(cat /tmp/mypkg.log)
+now_date=$(TimeZone="Asia/Tokyo" date "+%Y/%m/%d %H:%M:%S")
 
-timeout 10 ros2 launch mypkg talk_listen.launch.py > /tmp/mypkg.log
+echo "現在時刻: $now_date"
+echo "out: $out"
+[[ "$out" == *"現在時刻: $now_date,"* ]] || ng "$LINENO"
 
-cat /tmp/mypkg.log  |
-grep 'Listen: 10'
+[[ "$out" == *"経過時刻: 1.00秒"* ]] || ng "$LINENO"
+
+[ "$res" = 0 ] && echo OK
+exit $res
