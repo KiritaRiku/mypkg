@@ -3,6 +3,13 @@
 dir=~
 [ "$1" != "" ] && dir="$1"
 
+cd $dir/ros2_ws
+colcon build
+
+source install/setup.bash
+source install/local_setup.bash
+source $dir/.bashrc
+
 ng() {
     echo "${1}行目が違う"
     res=1
