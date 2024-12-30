@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2024 Kirita Riku <rikuribo1128@icloud.com>
+# SPDX-License-Identifier: BSD-3-Clause
+
 import rclpy
 from rclpy.node import Node
 from std_msgs.msg import String
@@ -45,13 +48,7 @@ def timer_cb():
         f"残り時間: {progress}"
     )
 
-    #msg = f"現在時刻:{now_time}, 経過時刻:{elapsed_time:.1f}秒"
-    #msg += f" 経過状況: {progress}"
 
-    #node.get_logger().info(f"現在時刻: {now_time}")
-    #node.get_logger().info(f"経過時刻: {elapsed_time:.1f}秒")
-    #node.get_logger().info(f"残り時間: {progress}")
-    
 
     pub.publish(String(data=msg))
     node.get_logger().info(msg)
