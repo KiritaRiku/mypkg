@@ -33,10 +33,11 @@ def timer_cb():
         node.get_logger().info("3分経過しました!")
 
 
-    if elapsed_time >= 301:
+    if elapsed_time >= 300:
         node.get_logger().info("5分経過しました！")
         node.get_logger().info("5分経過したので、ノードを停止します")
         rclpy.shutdown()
+
 
     msg = (
         f"現在時刻: {now_time}\n"
@@ -44,9 +45,12 @@ def timer_cb():
         f"残り時間: {progress}"
     )
 
-    node.get_logger().info(f"現在時刻: {now_time}")
-    node.get_logger().info(f"経過時刻: {elapsed_time:.1f}秒")
-    node.get_logger().info(f"残り時間: {progress}")
+    #msg = f"現在時刻:{now_time}, 経過時刻:{elapsed_time:.1f}秒"
+    #msg += f" 経過状況: {progress}"
+
+    #node.get_logger().info(f"現在時刻: {now_time}")
+    #node.get_logger().info(f"経過時刻: {elapsed_time:.1f}秒")
+    #node.get_logger().info(f"残り時間: {progress}")
     
 
     pub.publish(String(data=msg))
