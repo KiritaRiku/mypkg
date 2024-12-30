@@ -33,7 +33,7 @@ def timer_cb():
         node.get_logger().info("3分経過しました!")
 
 
-    if elapsed_time >= 300:
+    if elapsed_time >= 301:
         node.get_logger().info("5分経過しました！")
         node.get_logger().info("5分経過したので、ノードを停止します")
         rclpy.shutdown()
