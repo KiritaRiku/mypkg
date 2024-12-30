@@ -9,11 +9,7 @@ def generate_launch_description():
     timer = launch_ros.actions.Node(
         package='mypkg',
         executable='timer',
+        output='screen'
         )
-    listener = launch_ros.actions.Node(
-            package='mypkg',
-            executable='listener',
-            output='screen'
-            )
 
-    return launch.LaunchDescription([timer, listener])
+    return launch.LaunchDescription([timer])

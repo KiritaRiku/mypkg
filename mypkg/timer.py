@@ -17,7 +17,7 @@ def main():
     global node, pub, start_time
 
     rclpy.init()
-    node = Node("talker")
+    node = Node("timer_pub")
     pub = node.create_publisher(String, "time_information", 10)
     start_time = time.time()
     

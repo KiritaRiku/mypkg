@@ -24,7 +24,7 @@ setup(
     entry_points={
         'console_scripts': [
             'timer = mypkg.timer:main',
-            'listener = mypkg.listener:main',
+            #'listener = mypkg.listener:main',
         ],
     },
 )
