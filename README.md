@@ -7,7 +7,7 @@
 githubについての学習を目的として制作、公開をしています。
 
 
-#ノード
+# ノード
 
 - timer.pyには、*'timer_pub'*というノードがあります。
 - *'timer_pub'*は次の５つの機能を持ちます。
@@ -23,7 +23,7 @@ githubについての学習を目的として制作、公開をしています�
   - 現在時刻、経過した時間、バーの情報を送る。
 
 
-#実行例
+# 実行例
 - launchファイルを使いノードを動かすと次のような実行が可能です
 ```bash
 $ ros2 launch mypkg timer.launch.py
@@ -43,20 +43,20 @@ $ ros2 launch mypkg timer.launch.py
 [INFO] [1735610327.268887203] [timer_pub]: 5分経過したので、ノードを停止します
 ```
 
-#必要なソフトウェア
+# 必要なソフトウェア
 - python
 - コンテナ
 	- 講師がUbuntu 22.04 LTSにROS 2をセットアップしたものを使用する
 	- https://hub.docker.com/repository/docker/ryuichiueda/ubuntu22.04-ros2
 
 
-#テスト環境
+# テスト環境
 
 - ubuntu-22.04 LTS
 
 
 
-#ライセンス
+# ライセンス
 
 - このソフトウェアパッケージは，3条項BSDライセンスの下，再頒布および使用が許可iされます．
 - © 2024 Riku Kirita
