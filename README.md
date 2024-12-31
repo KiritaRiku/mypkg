@@ -54,6 +54,13 @@ $ ros2 launch mypkg timer.launch.py
 
 - ubuntu-22.04 LTS
 
+# 参考
+
+- https://taida-eng.com/%e9%80%86%e5%bc%95%e3%81%8d%e3%82%bd%e3%83%bc%e3%82%b9%e3%82%b3%e3%83%bc%e3%83%89/python%e9%80%86%e5%bc%95%e3%81%8d%ef%bc%9a%e5%87%a6%e7%90%86%e5%be%85%e3%81%a1%e3%81%ae%e9%96%93%e3%81%ab%e9%80%b2%e6%8d%97%e8%a1%a8%e7%a4%ba%e3%81%97%e3%81%9f%e3%81%84%e3%83%97%e3%83%ad%e3%82%b0/
+
+- https://takuya-1st.hatenablog.jp/entry/2016/04/11/044313#google_vignette
+
+- https://wa3.i-3-i.info/word11252.html
 
 
 # ライセンス
@@ -62,3 +69,4 @@ $ ros2 launch mypkg timer.launch.py
 - © 2024 Riku Kirita
 - このパッケージのコードの一部は，下記のスライド（CC-BY-SA 4.0 by Ryuichi Ueda）のものを，本人の許可を得て自身の著作としたものです．
 	- https://ryuichiueda.github.io/slides_marp/robosys2024/lesson8.html#4
+	- https://ryuichiueda.github.io/slides_marp/robosys2024/lesson10.html#8
