@@ -19,15 +19,10 @@ ng() {
 
 res=0
 
-timeout 300 ros2 launch mypkg timer_listen.launch.py > /tmp/mypkg.log
+timeout 300 ros2 run mypkg timer 
 
-out=$(cat /tmp/mypkg.log)
-
-echo grep -q "現在時刻:" "$out" || ng "$LINENO"
-echo grep -q '経過時刻:1.0秒' "$out" || ng "$LINENO"
-echo grep -q "3分経過しました！" "$out" || ng "$LINENO"
-echo grep -q "5分経過しました！" "$out" || ng "$LINENO"
-echo grep -q "5分経過したので、ノードを停止します" "$out" || ng "$LINENO"
+ros2 topic echo /time_infomation | grep "3分経過しました!"
+ros2 topic echo /time_infomation | grep "5分経過しました!ノードを停止します。"
 
 
 if [ "$res" = 0 ]; then
