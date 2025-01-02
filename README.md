@@ -1,4 +1,4 @@
-# assiment2
+# timer
 
 
 # 概要
