@@ -1,6 +1,3 @@
-# SPDX-FileCopyrightText: 2024 Kirita Riku <rikuribo1128@icloud.com>
-# SPDX-License-Identifier: BSD-3-Clause
-
 import rclpy
 from rclpy.node import Node
 from std_msgs.msg import String
@@ -26,32 +23,36 @@ def timer_cb():
 
     progress = progress_bar(elapsed_time, 300)
 
-    if minutes > 0:
-        time_num = f"{minutes}:{seconds:02d}"
-    else:
-        time_num = f"{seconds}秒"
+    # 3分経過時にメッセージを送信
+    if 180 <= elapsed_time < 181:
+        msg = (
+            f"現在時刻: {now_time}\n"
+            f"経過時刻: {elapsed_time:.1f}秒\n"
+            f"残り時間: {progress}\n"
+            f"3分経過しました!"
+        )
+        pub.publish(String(data=msg))
 
-
-    if elapsed_time >= 180 and elapsed_time < 190:
-        node.get_logger().info("3分経過しました!")
-
-
+    # 5分経過時にメッセージを送信し、ノードを停止
     if elapsed_time >= 300:
-        node.get_logger().info("5分経過しました！")
-        node.get_logger().info("5分経過したので、ノードを停止します")
+        msg = (
+            f"現在時刻: {now_time}\n"
+            f"経過時刻: {elapsed_time:.1f}秒\n"
+            f"残り時間: {progress}\n"
+            f"5分経過しました！ノードを停止します。"
+        )
+        pub.publish(String(data=msg))
         rclpy.shutdown()
 
+    # 定期的にメッセージを送信
+    else:
+        msg = (
+            f"現在時刻: {now_time}\n"
+            f"経過時刻: {elapsed_time:.1f}秒\n"
+            f"残り時間: {progress}"
+        )
+        pub.publish(String(data=msg))
 
-    msg = (
-        f"現在時刻: {now_time}\n"
-        f"経過時刻: {elapsed_time:.1f}秒\n"
-        f"残り時間: {progress}"
-    )
-
-
-
-    pub.publish(String(data=msg))
-    node.get_logger().info(msg)
 
 def main():
     global node, pub, start_time
@@ -60,7 +61,8 @@ def main():
     node = Node("timer_pub")
     pub = node.create_publisher(String, "time_information", 10)
     start_time = time.time()
-    
+
     node.create_timer(1.0, timer_cb)
 
-    rclpy.spin(node)()
+    rclpy.spin(node)
+
