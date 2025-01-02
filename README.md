@@ -22,7 +22,7 @@ githubについての学習を目的として制作、公開をしています�
 - time_information(std_msgs/String)
   - 現在時刻、経過した時間、バーの情報を送る。
 
-#ローンチファイル
+# ローンチファイル
 ```bash
 launch/timer.launch.py
 ```
