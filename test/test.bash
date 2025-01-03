@@ -21,8 +21,8 @@ res=0
 
 timeout 300 ros2 run mypkg timer 
 
-ros2 topic echo /time_infomation | grep "3分経過しました!"
-ros2 topic echo /time_infomation | grep "5分経過しました!ノードを停止します。"
+ros2 topic echo /time_information | grep "3分経過しました!"
+ros2 topic echo /time_information | grep "5分経過しました!ノードを停止します。"
 
 
 if [ "$res" = 0 ]; then
