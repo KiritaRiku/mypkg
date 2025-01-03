@@ -24,7 +24,7 @@ def timer_cb():
     progress = progress_bar(elapsed_time, 300)
 
     # 3分経過時にメッセージを送信
-    if 180 <= elapsed_time < 181:
+    if 180 <= elapsed_time < 183:
         msg = (
             f"現在時刻: {now_time}\n"
             f"経過時刻: {elapsed_time:.1f}秒\n"
@@ -59,7 +59,7 @@ def main():
 
     rclpy.init()
     node = Node("timer_pub")
-    pub = node.create_publisher(String, "time_information", 10)
+    pub = node.create_publisher(String, "/time_information", 10)
     start_time = time.time()
 
     node.create_timer(1.0, timer_cb)
