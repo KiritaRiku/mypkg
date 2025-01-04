@@ -22,13 +22,21 @@ NODE_PID=$!
 ros2 topic echo /time_information std_msgs/msg/String >> /tmp/mypkg.log &
 TOPIC_PID=$!
 
-echo "350秒の待機"
+
 sleep 350
 
 if grep -q "3分経過しました!" /tmp/mypkg.log; then
     echo "3分経過を確認"
 else
-    echo "見つかりません"
+    echo "3見つかりません"
+    res=1
+fi
+
+
+if grep -q "残り時間: [------------------------------]" /tmp/mypkg.log; then
+    echo "berを確認"
+else
+    echo "bar見つかりません"
     res=1
 fi
 
@@ -36,7 +44,7 @@ fi
 if grep -q "5分経過しました！ノードを停止します。" /tmp/mypkg.log; then
     echo "5分経過を確認"
 else
-    echo "見つかりません"
+    echo "5見つかりません"
     res=1
 fi
 
