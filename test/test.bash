@@ -42,6 +42,14 @@ else
 fi
 
 
+if grep -q "残り時間: [------------------------------]" /tmp/mypkg.log; then
+    echo "進捗バーがログに記録されています"
+else
+    echo "進捗バーが記録されていません"
+    res=1
+fi
+
+
 ros2 node list | grep -q mypkg.timer && ros2 node shutdown mypkg.timer
 
 
