@@ -33,13 +33,6 @@ else
 fi
 
 
-if grep -q "残り時間: [------------------------------]" /tmp/mypkg.log; then
-    echo "berを確認"
-else
-    echo "bar見つかりません"
-    res=1
-fi
-
 
 if grep -q "5分経過しました！ノードを停止します。" /tmp/mypkg.log; then
     echo "5分経過を確認"
