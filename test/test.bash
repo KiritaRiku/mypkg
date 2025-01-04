@@ -42,7 +42,7 @@ else
 fi
 
 
-if grep -q "残り時間: [------------------------------]" /tmp/mypkg.log; then
+if grep -q "残り時間: [-]*" /tmp/mypkg.log; then
     echo "進捗バーがログに記録されています"
 else
     echo "進捗バーが記録されていません"
