@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2024 Kirita Riku <rikuribo1128@icloud.com>
+# SPDX-License-Identifier: BSD-3-Clause
+
 import rclpy
 from rclpy.node import Node
 from std_msgs.msg import String
